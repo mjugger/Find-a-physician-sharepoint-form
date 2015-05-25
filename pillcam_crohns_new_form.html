@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="http://givenimaging.com/_layouts/GivenImaging.PublicSite/css/all.css">
+		<link rel="stylesheet" type="text/css" href="http://givenimaging.com/_layouts/GivenImaging.PublicSite/css/all.custom.css">
+		<link rel="stylesheet" type="text/css" href="http://givenimaging.com/SiteAssets/css/form.css">
+	</head>
+	<body id="content">
+		<form id="pillcam_crohns_form">
+			<div id="overlay">
+				<img id="loading" src="http://givenimaging.com/SiteAssets/imgs/loading.gif"/>
+			</div>
+			<div class="form-request-info">
+				<div class="row">
+					<label for="Country">Country: *</label>
+					<div class="area">
+						<select id="countriesTextBox" class="formElement selectElement" name="Country"></select>
+					</div>
+				</div>
+
+				<div class="row">
+					<label for="Facility_x0020_Name">Hospital/Facility Name:</label>
+					<div class="area">
+						<input id="FacilityNameTextBox" class="formElement" name="Facility_x0020_Name" type="text"/>
+					</div>
+				</div>
+
+				<div class="row">
+					<label for="Physicians">Physician Name: *</label>
+					<div class="area">
+						<input id="physicianNameTextBox" class="formElement" name="Physicians" type="text"/>
+					</div>
+				</div>
+
+				<div class="row">
+					<label for="Street_x0020_Address">Street Address: *</label>
+					<div class="area">
+						<input id="StreetAddressTextBox" class="formElement" name="Street_x0020_Address" type="text"/>
+					</div>
+				</div>
+
+				<div class="row">
+					<label for="City">City/Town: *</label>
+					<div class="area">
+						<input id="cityNameTextBox" class="formElement" name="City" type="text"/>
+					</div>
+				</div>
+
+				<div class="row hide">
+					<label for="State">State/Province/Region: *</label>
+					<div class="area">
+						<select id="stateTextBox" class="formElement selectElement" name="State"></select>
+					</div>
+				</div>
+
+				<div class="row">
+					<label for="Zipcode0">Zip/Postal Code: *</label>
+					<div class="area">
+						<input id="zipTextBox" class="formElement" name="Zipcode0" type="text"/>
+					</div>
+				</div>
+
+				<div class="row">
+					<label for="Phone">Phone Number: *</label>
+					<div class="area">
+						<input id="phoneNumberTextBox" class="formElement" name="Phone" type="text"/>
+					</div>
+				</div>
+
+				<div class="row">
+					<label for="Fax">Fax Number:</label>
+					<div class="area">
+						<input id="faxNumberTextBox" class="formElement" name="Fax" type="text"/>
+					</div>
+				</div>
+
+				<div class="row">
+					<label for="Website">Website URL:</label>
+					<div class="area">
+						<input id="websiteURLTextBox" class="formElement" name="Website" type="text"/>
+						<span class="flavor-text">(http://www.yourwebsite.com)</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-request-info">
+				<div class="row">
+					<label for="Title">Contact Name: *</label>
+					<div class="area">
+						<input id="contactNameTextBox" class="formElement" name="Title" type="text"/>
+					</div>
+				</div>
+				<div class="row">
+					<label for="Email">Contact Email: *</label>
+					<div class="area">
+						<input id="emailTextBox" class="formElement" name="Email" type="text"/>
+					</div>
+				</div>
+			</div>
+			<div class="form-request-info last">
+				<div class="row">
+					<div id="g-recaptcha"></div>
+				</div>
+				<div class="row">
+					<a class="btn-application submitBtn">
+						<span>Submit</span>
+					</a>
+				</div>
+			</div>
+		</form>
+		<div id="successMessage">
+			<p>[will need Oded to specify ajax thank you message or if this should redirect to another page]</p>
+		</div>
+	</body>
+	<script src="http://givenimaging.com/SiteAssets/js/jquery-1.8.3.min.js"></script>
+	<script src="http://givenimaging.com/SiteAssets/js/spservices.min.js"></script>
+	<script src="http://givenimaging.com/SiteAssets/js/jquery.validate.min.js"></script>
+	<script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit' async defer></script>
+	<script src="http://givenimaging.com/SiteAssets/js/form.js"></script>
+	<script>
+		var formInstance = new formjs({
+			overlay:$('#overlay'),
+			submit:$('.submitBtn'),
+			countryDropdown:$('#countriesTextBox'),
+			stateDropdown:$('#stateTextBox'),
+			form:$('#pillcam_crohns_form'),
+			formList:'PCC-LIST',
+			domainURL:'http://givenimaging.com/en-us',
+			successEl:$('#successMessage'),
+			validateOptions:{
+				rules:{
+					Country:'required',
+					State:'required',
+					Facility_x0020_Name:'required',
+					Physicians:'required',
+					Street_x0020_Address:'required',
+					City:'required',
+					Title:'required',
+					Phone:{
+						required:true,
+						digits:true
+					},
+					Email:{
+						required:true,
+						email:true
+					}
+				}
+			}
+		});
+	</script>
+</html>
