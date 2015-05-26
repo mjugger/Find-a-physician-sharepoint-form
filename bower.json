@@ -1,0 +1,21 @@
+{
+  "name": "Find a physician form",
+  "version": "1.0.0",
+  "homepage": "https://github.com/mjugger/Find-a-physician-sharepoint-form",
+  "authors": [
+    "Mukhtar Jugger <mukhtar.jugger@gc-usa.com>"
+  ],
+  "description": "sharepoint 2010 form built using SPservices",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "sp-services": "2014.02",
+    "jQuery": "1.8.3"
+  }
+}
